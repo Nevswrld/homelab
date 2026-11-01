@@ -1,22 +1,5 @@
 # Homelab
 
-## Hardware
-
-<img src="src/images/homelab.jpg" width="250" alt="The homelab server">
-
-| Component | Spec |
-| --- | --- |
-| CPU | AMD Ryzen 7 5700 (8C/16T desktop) |
-| RAM | 64 GB DDR4 (Corsair Vengeance) |
-| GPU | 2× NVIDIA GeForce RTX 3060 12 GB GDDR6 (24 GB VRAM total) |
-| Storage | 3× 1 TB SSD + 2× 8 TB WD Red Pro HDD (media library) |
-| Motherboard | ASRock X470 Master SLI |
-| PSU | MSI MAG A1000GL PCIe5 — fully modular 1000 W, 80+ Gold |
-| UPS | Goldenmate 1000 VA / 800 W lithium battery backup & surge protector |
-| Network | Ubiquiti Cloud Gateway Ultra (UCG-Ultra) |
-
-The dual GPUs run local LLM inference ([llama.cpp](./services/llamacpp)); everything else runs in Docker. The UPS rides out short power blips, and the UCG-Ultra routes the whole home network.
-
 ## Services
 
 Some of the services running on the homelab, with a brief description of what each is used for.
@@ -36,3 +19,27 @@ Some of the services running on the homelab, with a brief description of what ea
 | <img src="src/images/internal-links.svg" height="32" style="padding-right:12px" align="absmiddle"> | **tools.nevswrld** | My internal tool utility kit: media downloader (yt-dlp → MP4/MP3) and file converter (ffmpeg), built on Vue 3 + FastAPI. | [Docs](./services/tools-nevswrld.md) |
 | <img src="src/images/jellyfin.svg" height="32" style="padding-right:12px" align="absmiddle"> | **Jellyfin** | The media server — streams movies and TV from the local library (2× 8 TB WD Red Pro) to any device, wired into Seerr for requests. | [Docs](./services/jellyfin.md) |
 | <img src="src/images/llamacpp-light.svg" height="32" style="padding-right:12px" align="absmiddle"> | **llama.cpp** | Local LLM inference running natively on the host — serves an OpenAI-compatible API used by Open WebUI, n8n and OpenCode. Runs Qwen3.8 27B and Ornith 1.5 35b A3B across two RTX 3060s. | [Docs](./services/llamacpp.md) |
+
+## Hardware
+
+<table>
+  <tr>
+    <td style="vertical-align: top;">
+      <img src="src/images/homelab.jpg" width="250" alt="The homelab server">
+    </td>
+    <td style="vertical-align: top; padding-left: 16px;">
+      <table>
+        <tr><th>Component</th><th>Spec</th></tr>
+        <tr><td>CPU</td><td>AMD Ryzen 7 5700 (8C/16T desktop)</td></tr>
+        <tr><td>RAM</td><td>64 GB DDR4 (Corsair Vengeance)</td></tr>
+        <tr><td>GPU</td><td>2× NVIDIA GeForce RTX 3060 12 GB GDDR6 (24 GB VRAM total)</td></tr>
+        <tr><td>Storage</td><td>3× 1 TB SSD + 2× 8 TB WD Red Pro HDD (media library)</td></tr>
+        <tr><td>Motherboard</td><td>ASRock X470 Master SLI</td></tr>
+        <tr><td>PSU</td><td>MSI MAG A1000GL PCIe5 — fully modular 1000 W, 80+ Gold</td></tr>
+        <tr><td>UPS</td><td>Goldenmate 1000 VA / 800 W lithium battery backup & surge protector</td></tr>
+        <tr><td>Network</td><td>Ubiquiti Cloud Gateway Ultra (UCG-Ultra)</td></tr>
+      </table>
+      The dual GPUs run local LLM inference, everything else runs in Docker. The UPS rides out short power blips, and the UCG-Ultra routes the whole home network.
+    </td>
+  </tr>
+</table>
